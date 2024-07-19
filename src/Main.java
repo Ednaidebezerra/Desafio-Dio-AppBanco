@@ -10,8 +10,12 @@ public class Main {
         cc.depositar(100);
         cc.transferir(100, poupanca);
 
+        cc.receber(200 );
+        cc.pagar(150);
+
         cc.imprimirExtrato();
         poupanca.imprimirExtrato();
+
     }
 
 }

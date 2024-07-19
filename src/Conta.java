@@ -15,19 +15,29 @@ public abstract class Conta implements IConta {
     }
 
     @Override
-    public void sacar(double valor) {
-        saldo -= valor;
+    public void sacar(double valorSaque) {
+        saldo -= valorSaque;
     }
 
     @Override
-    public void depositar(double valor) {
-        saldo += valor;
+    public void depositar(double valorDeposito) {
+        saldo += valorDeposito;
     }
 
     @Override
-    public void transferir(double valor, IConta contaDestino) {
-        this.sacar(valor);
-        contaDestino.depositar(valor);
+    public void transferir(double valorTranferencia, IConta contaDestino) {
+        this.sacar(valorTranferencia);
+        contaDestino.depositar(valorTranferencia);
+    }
+
+    @Override
+    public void pagar(double valorPagamento) {
+        saldo -= valorPagamento;
+    }
+
+    @Override
+    public void receber(double valorRecebido) {
+        saldo += valorRecebido;
     }
 
     public int getAgencia() {
@@ -48,4 +58,6 @@ public abstract class Conta implements IConta {
         System.out.println(String.format("Numero: %d", this.numero));
         System.out.println(String.format("Saldo: %.2f", this.saldo));
     }
+
+
 }
